@@ -5,7 +5,8 @@ import TodoInput from "./schedule/ToDoInput";
 import store from "./schedule/store"
 import TodoList from "./schedule/ToDoList";
 
-const App = () => {
+
+const _App = () => {
 
   return <>
     <Provider store = {store}>
@@ -15,4 +16,4 @@ const App = () => {
   </>
 }
 
-export default App;
+export default _App;

@@ -1,4 +1,4 @@
-import {createAction, handleAction} from 'redux-actions'
+import {createAction, handleActions} from 'redux-actions'
 import produce from 'immer'
 
 /*액션*/
@@ -32,8 +32,8 @@ const initialState = {
 }
 
 /* 리듀서 */
-const todos = handleAction({
-    [CHANGE_INPUT] : (state, {payload: input}) => {produce(state, draft => {draft.input = input})},
+const todosReducer = handleActions({
+    [CHANGE_INPUT] : (state, {payload: input}) => produce(state, draft => {draft.input = input}),
     [INSERT] : (state, {payload: todo}) => produce(state, draft => {draft.todos.push(todo)}),
     [TOGGLE] : (state, {payload: id}) => produce(state, draft => {
         const todo = draft.todos.find(todo => todo.id === id)
@@ -45,4 +45,4 @@ const todos = handleAction({
         )
 }, initialState)
 
-export default todos
+export default todosReducer
